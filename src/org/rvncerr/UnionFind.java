@@ -3,6 +3,7 @@ package org.rvncerr;
 public class UnionFind {
     private int[] root;
     private int[] rank;
+
     UnionFind(int size) {
         root = new int[size];
         rank = new int[size];
@@ -10,6 +11,7 @@ public class UnionFind {
             root[i] = i;
         }
     }
+
     void union(int p, int q) {
         p = find(p);
         q = find(q);
@@ -21,6 +23,7 @@ public class UnionFind {
             root[q] = p;
         }
     }
+
     int find(int p) {
         while(p != root[p]) {
             root[p] = root[root[p]];
@@ -28,9 +31,11 @@ public class UnionFind {
         }
         return p;
     }
+
     boolean isConnected(int p, int q) {
         return find(p) == find(q);
     }
+
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("[ ");
